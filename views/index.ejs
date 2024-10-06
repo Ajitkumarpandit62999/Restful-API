@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+<body>
+        <h1 class="text-rose-900">Qura posts</h1>
+
+        <%for(post of posts){  %>
+
+          <div class="post bg-cyan-200"> 
+            
+            <h3 class="user"> @<%= post.username %></h3>
+            <p class="content"><%= post.content %></p>
+
+            <br>
+            <br>
+            <div style="display: flex;">
+            <button><a href="/posts/<%= post.id %>"> see in detail </a></button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button><a href="/posts/<%= post.id %>/edit"> edit </a></button>
+            &nbsp;&nbsp;
+            <form method="post" action="/posts/<%= post.id %>?_method=DELETE"> <button>Delet post</button> </form>
+            &nbsp;&nbsp;
+            <form method="get" action="/posts/signup/form"> <button>signup</button> </form>
+
+          </div>
+
+        </div> 
+        <% } %>
+
+        <br>
+        <br>
+        <br>
+
+        <a class="bg-rose-200" href="http://localhost:8080/posts/new">Create new Post </a>
+</body>
+</html>
